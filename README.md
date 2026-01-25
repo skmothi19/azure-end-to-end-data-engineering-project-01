@@ -55,3 +55,24 @@ In production, Managed Identity with RBAC is recommended.
 - Batch data processing with PySpark
 - Azure Data Factory ingestion pipelines
 - Data quality handling and transformations
+
+---
+
+## 🔁 Incremental Data Pipeline (Project #2)
+
+This project extends the batch pipeline with a **watermark-based incremental design**.
+
+### Incremental Flow
+- Watermark stored in ADLS metadata file
+- ADF reads watermark using Lookup activity
+- Databricks filters only new records
+- Delta Lake MERGE used to upsert data into Silver
+- Watermark updated after successful merge
+
+### Key Concepts Implemented
+- Watermark-based incremental processing
+- Delta Lake MERGE (idempotent writes)
+- Schema standardization before MERGE
+- Exactly-once processing pattern
+
+This approach mirrors real-world production data engineering pipelines.
